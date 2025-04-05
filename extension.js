@@ -525,7 +525,7 @@ function activate(context) {
                     content: userPrompt,
                   },
                 ],
-                model: "llama-3.3-70b-versatile",
+                model: "gemma2-9b-it",
                 temperature: 0.3,
                 max_tokens: 600, // Reduced from 1000 to save tokens
                 top_p: 1,
