@@ -1,0 +1,65 @@
+{
+  "name": "navbuddy",
+  "displayName": "NavBuddy",
+  "description": "Browse codebase using Natural Language",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.99.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "navbuddy.addApiKey",
+        "title": "NavBuddy : Add API Key"
+      },
+      {
+        "command": "navbuddy.findCode",
+        "title": "NavBuddy : Find Code"
+      },
+      {
+        "command": "navbuddy.activate",
+        "title": "NavBuddy : Activate NavBuddy"
+      },
+      {
+        "command": "navbuddy.changeFolders",
+        "title": "NavBuddy: Change Folders to Scan"
+      },
+      {
+        "command": "navbuddy.openFile",
+        "title": "NavBuddy: Open File ( Backend Only )"
+      }
+    ],
+    "configuration": {
+      "title": "NavBuddy",
+      "properties": {
+        "navbuddy.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API Key for NavBuddy",
+          "scope": "application"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.10",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.99.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.23.0"
+  },
+  "dependencies": {
+    "groq-sdk": "^0.19.0"
+  }
+}
