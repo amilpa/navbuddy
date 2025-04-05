@@ -32,6 +32,10 @@
       {
         "command": "navbuddy.openFile",
         "title": "NavBuddy: Open File ( Backend Only )"
+      },
+      {
+        "command": "navbuddy.removeApiKey",
+        "title": "NavBuddy: Remove API Key"
       }
     ],
     "configuration": {

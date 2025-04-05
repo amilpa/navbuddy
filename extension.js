@@ -748,13 +748,52 @@ function activate(context) {
     }
   );
 
+  const removeApiKey = vscode.commands.registerCommand(
+    "navbuddy.removeApiKey",
+    async function () {
+      // Get the current configuration
+      const config = vscode.workspace.getConfiguration("navbuddy");
+
+      // Check if API key exists
+      const apiKey = config.get("apiKey");
+      if (!apiKey) {
+        vscode.window.showInformationMessage("No API key is currently set.");
+        return;
+      }
+
+      // Ask for confirmation
+      const confirmation = await vscode.window.showWarningMessage(
+        "Are you sure you want to remove your NavBuddy API Key?",
+        "Yes",
+        "No"
+      );
+
+      if (confirmation !== "Yes") {
+        return;
+      }
+
+      // Remove the API key from configuration
+      await config.update(
+        "apiKey",
+        undefined,
+        vscode.ConfigurationTarget.Global
+      );
+
+      // Show confirmation message
+      vscode.window.showInformationMessage(
+        "NavBuddy API Key has been removed."
+      );
+    }
+  );
+
   // Register all commands
   context.subscriptions.push(
     saveapi,
     findCode,
     activate,
     changeDirs,
-    openFileCommand
+    openFileCommand,
+    removeApiKey
   );
 }
 
